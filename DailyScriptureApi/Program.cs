@@ -1,4 +1,7 @@
 using DailyScriptureApi.Data;
+using DailyScriptureApi.EndPoints;
+using DailyScriptureApi.Services.Interface;
+using DailyScriptureApi.Services.Repository;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
@@ -10,7 +13,12 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
 
+
+builder.Services.AddScoped<IVerseRepository, VerseRepository>();
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -39,6 +47,7 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+app.MapVerseEndPoint();
 
 app.Run();
 
