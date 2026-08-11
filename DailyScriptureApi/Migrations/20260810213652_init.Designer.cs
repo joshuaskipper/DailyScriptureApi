@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DailyScriptureApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260805151019_init")]
+    [Migration("20260810213652_init")]
     partial class init
     {
         /// <inheritdoc />

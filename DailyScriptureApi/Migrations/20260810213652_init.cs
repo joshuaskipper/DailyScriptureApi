@@ -18,9 +18,9 @@ namespace DailyScriptureApi.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     VerseAbbreviation = table.Column<string>(type: "text", nullable: true),
+                    Content = table.Column<string>(type: "text", nullable: true),
                     BookName = table.Column<string>(type: "text", nullable: true),
-                    Translation = table.Column<string>(type: "text", nullable: true),
-                    Content = table.Column<string>(type: "text", nullable: true)
+                    Translation = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
