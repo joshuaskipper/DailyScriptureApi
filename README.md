@@ -16,7 +16,23 @@ This API is **free to use** and requires **no authentication or API keys**.
 
 ---
 
+## Attribution & Usage
+
+This API is completely free to integrate into your projects. If you build a web app, mobile app, or devotional tool using this endpoint, attribution is greatly appreciated!
+
+You can credit this project by linking back to this repository or adding a simple footer in your app:
+
+> *Powered by [Daily Scripture API](https://github.com/joshuaskipper/DailyScriptureApi?tab=readme-ov-file)*
+
+---
+
 ## Built With
 * **Framework:** .NET / C#
 * **Documentation:** Scalar
 * **Hosting:** Render Free Tier
+
+---
+
+## License
+
+Distributed under the [MIT License](https://github.com/joshuaskipper/DailyScriptureApi?tab=MIT-1-ov-file).
