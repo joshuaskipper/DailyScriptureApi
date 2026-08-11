@@ -6,16 +6,16 @@ EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
-COPY ["BibleNotificationApi/BibleNotificationApi.csproj", "BibleNotificationApi/"]
-RUN dotnet restore "BibleNotificationApi/BibleNotificationApi.csproj"
+COPY ["DailyScriptureApi/DailyScriptureApi.csproj", "DailyScriptureApi/"]
+RUN dotnet restore "DailyScriptureApi/DailyScriptureApi.csproj"
 COPY . .
-WORKDIR "/src/BibleNotificationApi"
-RUN dotnet build "BibleNotificationApi.csproj" -c Release -o /app/build
+WORKDIR "/src/DailyScriptureApi"
+RUN dotnet build "DailyScriptureApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "BibleNotificationApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "DailyScriptureApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BibleNotificationApi.dll"]
+ENTRYPOINT ["dotnet", "DailyScriptureApi.dll"]
