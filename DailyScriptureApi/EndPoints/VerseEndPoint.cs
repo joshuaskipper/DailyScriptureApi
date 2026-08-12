@@ -27,6 +27,11 @@ namespace DailyScriptureApi.EndPoints
                 }
                 return Results.Ok(verseDomain);
             });
+
+            app.MapGet("/api/random/verse", () =>
+            {
+
+            });
         }
     }
 }

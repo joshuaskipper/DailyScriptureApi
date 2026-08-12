@@ -7,6 +7,7 @@ namespace DailyScriptureApi.Services.Repository
 {
     public class VerseRepository : IVerseRepository
     {
+        Random random = new Random();
         private readonly AppDbContext dbContext;
 
         public VerseRepository(AppDbContext dbContext)
@@ -64,6 +65,21 @@ namespace DailyScriptureApi.Services.Repository
         public async Task<Verse> GetById(int id)
         {
             var verseDomain = await dbContext.Verses.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (verseDomain is null)
+            {
+                return null;
+            }
+
+            return verseDomain;
+        }
+
+        public async Task<Verse> GetRandomAsync()
+        {
+            var listCount = dbContext.Verses.ToList().Count();
+            var ranNum = random.Next(1, listCount);
+
+            var verseDomain = await dbContext.Verses.FirstOrDefaultAsync(x => x.Id == ranNum);
 
             if (verseDomain is null)
             {
