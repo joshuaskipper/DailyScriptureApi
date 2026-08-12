@@ -28,8 +28,14 @@ namespace DailyScriptureApi.EndPoints
                 return Results.Ok(verseDomain);
             });
 
-            app.MapGet("/api/random/verse", () =>
+            app.MapGet("/api/random/verse", async (IVerseRepository verseRepository, [FromQuery]string translation) =>
             {
+                var verseDomain = await verseRepository.GetRandomAsync(translation);
+                if (verseDomain is null)
+                {
+                    return Results.NotFound();
+                }
+                return Results.Ok(verseDomain);
 
             });
         }

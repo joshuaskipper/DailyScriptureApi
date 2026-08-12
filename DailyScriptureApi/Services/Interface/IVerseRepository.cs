@@ -8,6 +8,7 @@ namespace DailyScriptureApi.Services.Interface
             int pageNumber = 1, int pageSize = 20);
         public Task<Verse> GetById(int id);
 
-        public Task<Verse> GetRandomAsync();
+        // Pass through a string for translation they want the random verse from..
+        public Task<Verse> GetRandomAsync(string translation);
     }
 }
