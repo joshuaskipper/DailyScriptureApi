@@ -76,7 +76,7 @@ namespace DailyScriptureApi.Services.Repository
 
         public async Task<Verse> GetRandomAsync(string translation)
         {
-            if (translation.Length > 2 || string.IsNullOrEmpty(translation))
+            if ( string.IsNullOrEmpty(translation) || translation.Length != 2 )
             {
                 return null;
             }
